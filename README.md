@@ -44,7 +44,7 @@ NAME      TYPE SIZE  USED PRIO
 
 [Docker Offical Documentation](https://docs.docker.com/engine/install/) <--- Source
 
-- {Install Option} To deploy from jenkins to another host running docker that host must have docker api on tcp port for jenkins to use. By doing this we are introducing a way into root. 
+- {Install Option} To deploy from jenkins to another host running docker that host must have docker api on tcp port for jenkins to use. By doing this we are introducing a way into root. This step is probably not required for successful build.
 - If you do this set a firewall rule to block incoming connections on your internet ethernet interface port 2375 (Get interface name with ifconfig)
 ```
 sudo iptables -I INPUT 1 -i eth0 -p tcp -m tcp --dport 2375 -j DROP
