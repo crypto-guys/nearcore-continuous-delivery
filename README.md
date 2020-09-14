@@ -160,6 +160,9 @@ exit
 
 ## Usage
 
+We will use the test script start_unittest.py there are more scripts located in the source or https://github.com/nearprotocol/nearcore/tree/master/scripts
+
+
 - Login with the adming password at http://<server_ip>:8080
 - Create a user and install default plugins
 - Go to manage jenkins, Add the docker plugin
