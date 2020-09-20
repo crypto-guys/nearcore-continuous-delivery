@@ -44,7 +44,7 @@ NAME      TYPE SIZE  USED PRIO
 
 [Docker Offical Documentation](https://docs.docker.com/engine/install/) <--- Source
 
-- {Install Option} To deploy from jenkins to another host running docker that host must have docker api on tcp port for jenkins to use. By doing this we are introducing a way into root. This step is probably not required for successful build.
+- {Install Option} To deploy from jenkins to another host running docker that host must have docker api on tcp port for jenkins to use. By doing this we are introducing a way into root. This step is **NOT** required for successful build and has been removed from this document. Instructions can be found in offical documentation
 - If you do this set a firewall rule to block incoming connections on your internet ethernet interface port 2375 (Get interface name with ifconfig)
 ```
 sudo iptables -I INPUT 1 -i eth0 -p tcp -m tcp --dport 2375 -j DROP
@@ -77,30 +77,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
 sudo usermod -aG docker <your_user_name>
 sudo systemctl enable docker
-sudo mkdir -p /etc/systemd/system/docker.service.d
-sudo systemctl edit docker.service
 ```
-
-- Paste these setting or change the values to match
-
-```
-[Service]
-ExecStart=
-ExecStart=/usr/bin/dockerd -H fd:// -H tcp://127.0.0.1:2375
-```
-
-- Log out then log in
-- Reload the docker service then ensure it is listening
-```
-sudo systemctl daemon-reload
-sudo systemctl restart docker.service
-netstat -a | grep 2375
-# results should = tcp        0      0 localhost:2375          0.0.0.0:*               LISTEN
-docker run hello-world
-
-```
-- If the docker container sends you the hello-world message the install was successful.
-
 
 ## Install Jenkins
 
