@@ -1,4 +1,4 @@
-# Using Jenkins to automate nearcore CD 
+# Using Jenkins to automate nearcore CI/CD 
 
 In this guide I will go over how I set up jenkins to monitor the nearcore github for new updates on specific releases, retrieve the new releases, compile the source code locally, run automated testing, and finally deploy a node using the new software on its own localnet. This should work with a new install of ubuntu 18.04
 
